@@ -3,11 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\DriverResource\Pages;
-use App\Filament\Resources\DriverResource\RelationManagers;
 use App\Models\Driver;
 use App\Services\IBGEService;
-use Faker\Provider\ar_EG\Text;
-use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -17,8 +14,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class DriverResource extends Resource
 {
@@ -49,14 +44,14 @@ class DriverResource extends Resource
                         ->label('Estado')
                         ->required()
                         ->reactive()
-                        ->columnSpan(2)
-                        ,
+                        ->columnSpan(2),
                     Select::make('address.city')
                         ->label('Cidade')
                         ->required()
-                        ->options(function(Get $get) {
+                        ->options(function (Get $get) {
                             $state = $get('address.state');
                             dd((new IBGEService)->getCitiesByUf($state));
+
                             return (new IBGEService)->getCitiesByUf($state);
 
                         })

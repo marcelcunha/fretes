@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Address;
 use App\Models\Document;
 use App\Models\Driver;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DriverSeeder extends Seeder

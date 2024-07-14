@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Http;
 
 class GeolocationService
 {
-    public function coordinates(string $address, int $num, string $city, string $state, $country = 'Brasil', string $cep = null,): array
+    public function coordinates(string $address, int $num, string $city, string $state, $country = 'Brasil', ?string $cep = null): array
     {
-        $url = "https://nominatim.openstreetmap.org/search?";
+        $url = 'https://nominatim.openstreetmap.org/search?';
 
         $response = Http::withQueryParameters([
             'street' => "$num $address",

@@ -20,6 +20,7 @@ class IBGEService
                 ->baseUrl(config('ibge.url'));
         });
     }
+
     public function getCitiesArrayByUF(?string $uf): array
     {
         $resposta = $this->getCitiesByUf($uf);
