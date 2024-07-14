@@ -18,7 +18,6 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'driver_id' => Driver::factory()->create(),
             'street' => $this->faker->streetName,
             'number' => $this->faker->buildingNumber,
             'neighborhood' => $this->faker->city,
