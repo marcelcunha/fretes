@@ -25,6 +25,10 @@ class IBGEService
     {
         $resposta = $this->getCitiesByUf($uf);
 
+        if (empty($resposta)) {
+            return $resposta;
+        }
+
         return Arr::mapWithKeys($resposta, function ($city) {
             return [$city['nome'] => $city['nome']];
         });

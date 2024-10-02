@@ -18,7 +18,7 @@ class DriverFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'cpf' => $this->faker->unique()->numerify('###########'),
+            'cpf' => $this->faker->unique()->cpf(),
         ];
     }
 }

@@ -11,6 +11,11 @@ class Driver extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'cpf',
+    ];
+
     public function address(): HasOne
     {
         return $this->hasOne(Address::class);
