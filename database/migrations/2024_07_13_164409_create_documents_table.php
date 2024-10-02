@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('path');
+            $table->longText('doc');
             $table->string('type')->nullable();
-            $table->foreignId('driver_id')->constrained();
+            $table->morphs('documentable');
             $table->timestamps();
         });
     }
